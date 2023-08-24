@@ -7,6 +7,7 @@ module monad_mod
    contains
       procedure(unwrap_in),deferred::unwrap
    end type monad
+
    abstract interface
       character(len=114) function unwrap_in(this)result(res)
          import monad
@@ -98,7 +99,7 @@ program main
    ptr_in =>fin
    ptr_out=>fout
    m1=pure_output("Hello")
-   m2=mbind(m1,ptr_out)
+   m2=mbind(m1,ptr_in)
    m3=mbind(m2,ptr_out)
    !write(*,*)m3%unwrap()
 contains
