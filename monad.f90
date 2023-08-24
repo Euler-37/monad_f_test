@@ -77,6 +77,7 @@ contains
       class(monad),intent(inout)::this
       procedure(mfunc)::func
       class(monad),allocatable::res
+      !res=Monadbind(lambda=fptr)
       res=Monadbind()
       select type(res)
       type is (monadbind)
